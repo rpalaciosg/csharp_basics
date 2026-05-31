@@ -1,3 +1,3 @@
-# Curso de C#
+# Csharp solid fundations
 
-Curso de C# de devtalles.
+Reinforcing basics C# concepts
