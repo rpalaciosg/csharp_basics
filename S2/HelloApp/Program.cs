@@ -16,6 +16,7 @@ partial class Program
     // HandleNullables();
     // Operators();
     // InventoryManager();
-    ListDictionary();
+    // ListDictionary();
+    DataStructures();
   }
 }
