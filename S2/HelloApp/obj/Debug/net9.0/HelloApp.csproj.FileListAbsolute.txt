@@ -12,3 +12,4 @@
 /home/richard/Learning/dotNet/Csharp_curso/S2/HelloApp/obj/Debug/net9.0/HelloApp.pdb
 /home/richard/Learning/dotNet/Csharp_curso/S2/HelloApp/obj/Debug/net9.0/HelloApp.genruntimeconfig.cache
 /home/richard/Learning/dotNet/Csharp_curso/S2/HelloApp/obj/Debug/net9.0/ref/HelloApp.dll
+/home/richard/Learning/dotNet/Csharp_curso/S2/HelloApp/obj/Debug/net9.0/HelloApp.sourcelink.json
