@@ -27,7 +27,7 @@ partial class Program
     Console.WriteLine($"Float: {floatNumber}");
     Console.WriteLine($"Long: {longNumber}");
     Console.WriteLine($"Decimal/Monetary Number: {monetaryNumber}");
-
+    WriteLine($"Número inferido: {numeroInferido}");
 
   }
 }
