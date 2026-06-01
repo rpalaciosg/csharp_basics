@@ -26,7 +26,8 @@ partial class Program
     // Loops();
     // FizzBuzz();
     // LoopControlExamples();
-    LoopGame();
+    // LoopGame();
+    Convertions();
     #endregion
   }
 }
