@@ -40,7 +40,8 @@ partial class Program
     // AnonymousFunctions();
     // TestingClasses();
     // Properties();
-    Methods();
+    // Methods();
+    InstanceObjects();
 
     #endregion
   }
