@@ -29,7 +29,11 @@ partial class Program
     // LoopGame();
     // Conversions();
     // ParseToDatetime();
-    Functions();
+    // Functions();
+    // PrintMultiplicationTable(7);
+
+    //arguemtnos nombrados, nos permite enviar en el nombre que quedamos
+    PrintMultiplicationTable(number: 10, tableLimit: 15);
     #endregion
   }
 }
