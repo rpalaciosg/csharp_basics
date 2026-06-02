@@ -37,7 +37,8 @@ partial class Program
     // PrintFactorialTable(5);
     // PrintFactorialTable1(5);
     // Tuples();
-    AnonymousFunctions();
+    // AnonymousFunctions();
+    TestingClasses();
 
     #endregion
   }

@@ -12,3 +12,14 @@ en el archivo del proyecto `.csproj` y agregamos lo siguiente:
     <Using Include="System.Console" Static="true"/>
   </ItemGroup>
 ```
+
+## Seccion : Clases, objetos, herencia y polimorfismo, propiedades
+
+1. Definición y uso de clases en C#
+2. Propiedades y métodos en clases
+3. Creación e instanciación de objetos
+4. Constructores y destructores
+5. Herencia y reutilización de código
+6. Polimorfismo en métodos, clases abstractas e interfaces
+7. Visibilidad y encapsulamiento en C#
+8. Implementación de ejercicios prácticos de gestión de inventario, flotas de buses y empleados
