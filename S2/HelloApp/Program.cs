@@ -35,7 +35,8 @@ partial class Program
     //arguemtnos nombrados, nos permite enviar en el nombre que quedamos
     // PrintMultiplicationTable(number: 10, tableLimit: 15);
     // PrintFactorialTable(5);
-    PrintFactorialTable1(5);
+    // PrintFactorialTable1(5);
+    Tuples();
 
     #endregion
   }
