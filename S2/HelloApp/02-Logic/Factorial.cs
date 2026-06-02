@@ -12,11 +12,34 @@ partial class Program
   static void PrintFactorialTable(int number)
   {
     WriteLine($"Factorial del numero {number} desde el 1 hasta el {number}:");
+    WriteLine();
     int result = 1;
     for(int i=1; i <= number; i++)
     {
       result *=i;
       WriteLine($"{i}! = {result}");
     }
+  }
+
+  // solucion con metodo acumulador
+  static void PrintFactorialTable1(int number)
+  {
+    WriteLine($"Factorial del numero {number} desde el 1 hasta el {number}:");
+    WriteLine();
+    for(int i=1; i <= number; i++)
+    {
+      WriteLine($"{i}! = {Factorial(i)}");
+    }
+    WriteLine();
+  }
+
+  static int Factorial(int number)
+  {
+    int result = 1;
+    for (int i = 1; i <= number;i++)
+    {
+      result *= i;
+    }
+    return result;
   }
 }
