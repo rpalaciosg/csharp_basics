@@ -28,7 +28,8 @@ partial class Program
     // LoopControlExamples();
     // LoopGame();
     // Conversions();
-    ParseToDatetime();
+    // ParseToDatetime();
+    Functions();
     #endregion
   }
 }
