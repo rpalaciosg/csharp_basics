@@ -11,7 +11,6 @@ partial class Program
 
     myMicrowave.ShowBrand();
     myMicrowave.TurnOn();
-    
   }
 }
 
@@ -25,7 +24,7 @@ abstract class HomeAppliance
   {
     WriteLine($"La marca del electrodomestico: {Brand}");
   }
-  
+
 }
 
 // implementacion de la clase abstracta
@@ -43,5 +42,5 @@ class Microwave : HomeAppliance
  public override void TurnOn()
  {
   WriteLine("El microondas esta calentando la comida.");
- } 
+ }
 }

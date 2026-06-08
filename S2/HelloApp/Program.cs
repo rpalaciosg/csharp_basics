@@ -46,12 +46,13 @@ partial class Program
     //Forzar garbage collector en ConstructorsDestructors() para fines educativos, no es recomendable hacerlo manualmente en un entorno de producción, ya que el garbage collector de .NET se encarga automáticamente de gestionar la memoria y liberar los recursos cuando ya no son necesarios.
     // GC.Collect();
     //Ejecuten los finalizadores de los objetos que han sido recolectados por el garbage collector, lo que a su vez llamará a los destructores de esos objetos.
-    // GC.WaitForPendingFinalizers();    
+    // GC.WaitForPendingFinalizers();
     // InventoryManagement();
     // BusFleet();
     // Inheritance();
     // Polimorfismo();
-    AbstractClassExamples();
+    // AbstractClassExamples();
+    Visibility();
 
     #endregion
   }
