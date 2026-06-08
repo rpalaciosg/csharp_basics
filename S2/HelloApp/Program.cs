@@ -49,7 +49,9 @@ partial class Program
     // GC.WaitForPendingFinalizers();    
     // InventoryManagement();
     // BusFleet();
-    Inheritance();
+    // Inheritance();
+    // Polimorfismo();
+    AbstractClassExamples();
 
     #endregion
   }
