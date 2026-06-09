@@ -16,14 +16,27 @@ partial class Program
     // jedi.RevealSecrets();
 
     Sith sith = new Sith();
-    sith.ShowProtected();
+    // sith.ShowProtected();
+    sith.PowerLevel = 4000;
+    sith.LightsaberColor = "red";
+    sith.UseForce();
   }
+}
+
+//interface: es como un contrato.
+interface IForceUser
+{
+  // todo usuario de  fuerza debe tener al menos estas 2 propiedades
+  int PowerLevel {get; set;}
+  string? LightsaberColor {get; set;}
+
+  void useForce();
 }
 
 //public: tiene acceso desde cualquier parte del prpgrama
 //provate: solo tienen acceso los que estan dentro de esa clase
 //protected: es accesible dentro de esta clase y clases derivadas
-class Jedi
+class Jedi : IForceUser
 {
   public string PublicField = "Soy un Jedi y mi poder es conocido";
   private string PrivateField = "Mis pensamientos mas profundos son privados";
@@ -52,14 +65,27 @@ class Jedi
     WriteLine(PrivateField);
     Meditate();
   }
+
+    public void useForce()
+    {
+        throw new NotImplementedException();
+    }
 }
 
+
 // clase derivada que
-class Sith : Jedi
+class Sith : Jedi,IForceUser
 {
+  public new void UseForce()
+  {
+    WriteLine($"Soy un sith con un sable de luz {LightsaberColor} y mi nivel de poder es: {PowerLevel}");
+  }
+
   public void ShowProtected()
   {
     WriteLine(ProtectedField);
     Train();
   }
 }
+//podemos heredar una sola clase
+//pero podemos implementar multiples interfaces separadas por coma.
