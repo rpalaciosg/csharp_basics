@@ -57,7 +57,8 @@ partial class Program
     #endregion
     #region Section 4
     // HandleException();
-    Collections();
+    // Collections();
+    Linq();
     #endregion
   }
 }
