@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LWvbWaBAax8=",
+  "dgSpecHash": "vYr6WVuzgGs=",
   "success": true,
-  "projectFilePath": "/home/richard/Learning/dotNet/Csharp_curso/S2/HelloApp/HelloApp.csproj",
-  "expectedPackageFiles": [
-    "/home/richard/.nuget/packages/microsoft.netcore.app.ref/9.0.16/microsoft.netcore.app.ref.9.0.16.nupkg.sha512",
-    "/home/richard/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.16/microsoft.aspnetcore.app.ref.9.0.16.nupkg.sha512",
-    "/home/richard/.nuget/packages/microsoft.netcore.app.host.linux-x64/9.0.16/microsoft.netcore.app.host.linux-x64.9.0.16.nupkg.sha512"
-  ],
+  "projectFilePath": "E:\\Learning\\csharp_basics\\S2\\HelloApp\\HelloApp.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
