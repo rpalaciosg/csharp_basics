@@ -30,31 +30,40 @@ partial class Program
     //Add items
     employees.Add(7, "Richard");
 
-    ShowEmployees(employees);
+    // ShowEmployees(employees);
 
     // remover item de dictionary
     employees.Remove(4);
-    WriteLine($"\nDespues de remover '4'");
-    ShowEmployees(employees);
-    
-  //   /*
-  //   * Hashset
-  //   * Conjunto de elementos unicos
-  //   */
-  //   //definicion
-  //   HashSet<string> users = ["rpalacios", "ejuca", "pgarcia"];
+    // WriteLine($"\nDespues de remover '4'");
+    // ShowEmployees(employees);
 
-  //  //adicion
-  //  users.Add("dalcivar");
-  //  users.Add("aauquilla");
-  //  users.Add("pgarcia");
-   
-  //  //recorrer hash
-  //  foreach (var user in users)
-  //  {
-  //     WriteLine(user);
-  //  }
+    /*
+    * HashSet
+    * Conjunto de elementos unicos
+    */
+    //definicion
+    HashSet<string> users = ["rpalacios", "ejuca", "pgarcia"];
 
+    //adicion
+    users.Add("dalcivar");
+    users.Add("aauquilla");
+    users.Add("pgarcia");
+
+    ShowUsers(users);
+    // remover items
+    users.Remove("ejuca");
+    WriteLine($"\nDespues de remover 'ejuca'");
+    ShowUsers(users);
+
+  }
+
+  private static void ShowUsers(HashSet<string> users)
+  {
+    //recorrer hash
+    foreach (var user in users)
+    {
+      WriteLine(user);
+    }
   }
 
   private static void ShowEmployees(Dictionary<int, string> employees)
