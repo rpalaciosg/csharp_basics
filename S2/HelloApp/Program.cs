@@ -56,7 +56,8 @@ partial class Program
     // ShowEmployeesInformation();
     #endregion
     #region Section 4
-    HandleException();
+    // HandleException();
+    Collections();
     #endregion
   }
 }
