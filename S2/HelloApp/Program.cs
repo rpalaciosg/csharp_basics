@@ -53,8 +53,10 @@ partial class Program
     // Polimorfismo();
     // AbstractClassExamples();
     // Visibility();
-    ShowEmployeesInformation();
-
+    // ShowEmployeesInformation();
+    #endregion
+    #region Section 4
+    HandleException();
     #endregion
   }
 }
