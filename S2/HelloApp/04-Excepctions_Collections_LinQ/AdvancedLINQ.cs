@@ -104,8 +104,30 @@ namespace AdvancedLinq
                                 join a in abilities on c.Id equals a.CharacterId
                                 group a by c.Alias into groupAbilities
                                 select new {Character = groupAbilities.Key, Count= groupAbilities.Count()};
+      // usando join, luego grup con una proyeccion intermedia 
+      var abilitiesByCaracterMethod1 = characters
+                                      .Join(abilities,
+                                          c => c.Id,
+                                          a => a.CharacterId,
+                                          (c,a) => new {Character = c, Ability = a})
+                                      .GroupBy(x => x.Character.Alias)
+                                      .Select(group => new
+                                      {
+                                        Character = group.Key, Count = group.Count()
+                                      });
+      
+      // method alternativausando GroupJoin
+      var abilitiesByCaracterMethod2 = characters
+                                      .GroupJoin(abilities,
+                                                 c => c.Id,
+                                                 a => a.CharacterId,
+                                                 (c,abilitiesGroup) => new
+                                                 {
+                                                   Character = c.Alias,
+                                                   Count = abilitiesGroup.Count()
+                                                 });
       WriteLine("📝 Cantidad de habilidades por personaje:");
-      foreach (var character in abilitiesByCaracter)
+      foreach (var character in abilitiesByCaracterMethod2)
       {
        WriteLine($"{character.Character}: {character.Count} habilidades");
       }
