@@ -77,15 +77,38 @@ namespace AdvancedLinq
                                               c => c.Id,
                                               a => a.CharacterId,
                                               (c,a) => new {c.Alias, c.Name, a.Description});
-      WriteLine("🦸‍♂️ Personajes y sus habilidades:");
+      // WriteLine("🦸‍♂️ Personajes y sus habilidades:");
       foreach (var character in charactersWithAbilitiesMethod)
       {
-        WriteLine($"{character.Alias} {character.Name} - Habilidad: {character.Description}");
+        // WriteLine($"{character.Alias} {character.Name} - Habilidad: {character.Description}");
       }
+      
+      /*
+      * Consulta de agregaciones: sum, count y average
+      */
 
-      // WriteLine($"⚡ Poder total de todos los personajes: {totalPower}");
-      // WriteLine($"🛡️ Promedio de poder de los Avengers: {avengersPower:F2}");
-      // WriteLine("📝 Cantidad de habilidades por personaje:");
+      // Sum: Obtener el poder total de todos los personajes, es decir suma de todos los poderes de todos
+      // los personajes
+      int totalPower = statistics.Sum(s => s.Power);
+      WriteLine($"⚡ Poder total de todos los personajes: {totalPower}");
+      
+      // Average: obtener promedio de poder de los "Avengers"
+      var avengersPower = (from c in characters
+                           join s in statistics on c.Id equals s.CharacterId
+                           where c.Team == "Avengers"
+                           select s.Power).Average();
+      WriteLine($"🛡️ Promedio de poder de los Avengers: {avengersPower:F2}");
+
+      // Count: cantidad de habilidades por personaje
+      var abilitiesByCaracter = from c in characters
+                                join a in abilities on c.Id equals a.CharacterId
+                                group a by c.Alias into groupAbilities
+                                select new {Character = groupAbilities.Key, Count= groupAbilities.Count()};
+      WriteLine("📝 Cantidad de habilidades por personaje:");
+      foreach (var character in abilitiesByCaracter)
+      {
+       WriteLine($"{character.Character}: {character.Count} habilidades");
+      }
     }
   }
 }
