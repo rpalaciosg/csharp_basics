@@ -62,11 +62,40 @@ partial class Program
                               select c.Name?.ToUpper();
     
     var uppercaseNamesMethod = characters.Select(c => c .Name?.ToUpper());
-    WriteLine(">> Nombres de Personasjes en mayusculas <<");
-    foreach (var characterName in uppercaseNamesMethod)
+    // WriteLine(">> Nombres de Personasjes en mayusculas <<");
+    // foreach (var characterName in uppercaseNamesMethod)
+    // {
+    //   WriteLine($"{characterName}"); 
+    // }
+    
+    //ordenar  los datos
+    var sortedQuery = from c in characters
+                      orderby c.Name //descending
+                      select c.Name;
+    
+    var sortedMethod = characters.OrderByDescending(c => c.Name);
+    // WriteLine(">> ORdenar lso Nombres de manera descendente :<<");
+    // foreach (var character in sortedMethod)
+    // {
+    //   WriteLine($"{character.Name}"); 
+    // }
+    
+    // Mostrar los primeeros 3 elementos
+   var firstThreeQuery = (from c in characters select c).Take(3);
+   var firstThreeMethod = characters.Take(3);
+    WriteLine(">> Obteniendo los primeros 3 :<<");
+    foreach (var character in firstThreeMethod)
     {
-      WriteLine($"{characterName}"); 
+      WriteLine($"{character.Name}"); 
     }
+    
+    //Obtener solo el primer registro
+    WriteLine(">> Obteniendo solo el primero registro :<<");
+    var firstOnlyQuery = (from c in characters select c).First();
+    WriteLine(firstOnlyQuery.Alias);
+    var firstOnlyMethod = characters.First();
+    WriteLine(firstOnlyMethod.Name);
+
   }
 }
 
