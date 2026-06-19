@@ -58,17 +58,30 @@ namespace AdvancedLinq
                        group c by c.Team into team
                        select team;
       var teamsMethod = characters.GroupBy(c => c.Team);
-      WriteLine(">> Agrupaciones por equipos: <<");
+      // WriteLine(">> Agrupaciones por equipos: <<");
       foreach (var team in teamsMethod)
       {
-        WriteLine($"👥 Equipo: {team.Key}");
+        // WriteLine($"👥 Equipo: {team.Key}");
         foreach (var character in team)
         {
-          WriteLine($" - {character.Name}");
+          // WriteLine($" - {character.Name}");
         }
       }
-
-      // WriteLine("🦸‍♂️ Personajes y sus habilidades:");
+      
+      // Union/join de colecciones por su relacion
+      var charactersWithAbilities = from c in characters
+                                    join a in abilities on c.Id equals a.CharacterId
+                                    select new { c.Alias, c.Name, a.Description};
+      var charactersWithAbilitiesMethod = characters
+                                        .Join(abilities,
+                                              c => c.Id,
+                                              a => a.CharacterId,
+                                              (c,a) => new {c.Alias, c.Name, a.Description});
+      WriteLine("🦸‍♂️ Personajes y sus habilidades:");
+      foreach (var character in charactersWithAbilitiesMethod)
+      {
+        WriteLine($"{character.Alias} {character.Name} - Habilidad: {character.Description}");
+      }
 
       // WriteLine($"⚡ Poder total de todos los personajes: {totalPower}");
       // WriteLine($"🛡️ Promedio de poder de los Avengers: {avengersPower:F2}");
