@@ -1,0 +1,4 @@
+Esto esta dentro del archivo.
+Esta es otra linea del archivo.
+Con esto puedo hacer pruebas de como se ven las lineas concatenadas.
+Para mostrarlas en el WriteLine.
