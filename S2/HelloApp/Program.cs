@@ -65,7 +65,8 @@ partial class Program
     #region Section 5
     // FileExample();
     // DirectoryExample();
-    PathExample();
+    // PathExample();
+    WriteFileExample();
     # endregion
     }
 }

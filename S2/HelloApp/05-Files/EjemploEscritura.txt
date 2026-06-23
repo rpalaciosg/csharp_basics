@@ -1,0 +1,6 @@
+Primera linea
+La hora actual es: 10:51:09
+Primera linea
+La hora actual es: 10:52:32
+Esto se aniadira al final
+La hora actual es: 10:53:17
