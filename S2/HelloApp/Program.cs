@@ -63,7 +63,8 @@ partial class Program
     // SalesAnalysis();
     #endregion
     #region Section 5
-    FileExample();
+    // FileExample();
+    DirectoryExample();
     # endregion
     }
 }
