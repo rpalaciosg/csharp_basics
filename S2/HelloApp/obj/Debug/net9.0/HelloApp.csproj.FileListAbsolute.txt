@@ -43,3 +43,10 @@ E:\Learning\csharp_basics\S2\HelloApp\obj\Debug\net9.0\refint\HelloApp.dll
 E:\Learning\csharp_basics\S2\HelloApp\obj\Debug\net9.0\HelloApp.pdb
 E:\Learning\csharp_basics\S2\HelloApp\obj\Debug\net9.0\HelloApp.genruntimeconfig.cache
 E:\Learning\csharp_basics\S2\HelloApp\obj\Debug\net9.0\ref\HelloApp.dll
+E:\Learning\csharp_basics\S2\HelloApp\bin\Debug\net9.0\BetterConsoles.Colors.dll
+E:\Learning\csharp_basics\S2\HelloApp\bin\Debug\net9.0\BetterConsoles.Core.dll
+E:\Learning\csharp_basics\S2\HelloApp\bin\Debug\net9.0\BetterConsole.Tables.dll
+E:\Learning\csharp_basics\S2\HelloApp\bin\Debug\net9.0\Clawfoot.Core.dll
+E:\Learning\csharp_basics\S2\HelloApp\bin\Debug\net9.0\Clawfoot.Extensions.dll
+E:\Learning\csharp_basics\S2\HelloApp\obj\Debug\net9.0\HelloApp.csproj.AssemblyReference.cache
+E:\Learning\csharp_basics\S2\HelloApp\obj\Debug\net9.0\HelloApp.csproj.Up2Date

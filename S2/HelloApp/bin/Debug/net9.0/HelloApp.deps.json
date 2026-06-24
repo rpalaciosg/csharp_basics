@@ -7,8 +7,62 @@
   "targets": {
     ".NETCoreApp,Version=v9.0": {
       "HelloApp/1.0.0": {
+        "dependencies": {
+          "BetterConsoleTables": "2.0.5-rc1"
+        },
         "runtime": {
           "HelloApp.dll": {}
+        }
+      },
+      "BetterConsoles.Colors/1.1.1": {
+        "dependencies": {
+          "BetterConsoles.Core": "1.2.0"
+        },
+        "runtime": {
+          "lib/net5.0/BetterConsoles.Colors.dll": {
+            "assemblyVersion": "1.1.1.0",
+            "fileVersion": "1.1.1.0"
+          }
+        }
+      },
+      "BetterConsoles.Core/1.2.0": {
+        "runtime": {
+          "lib/net5.0/BetterConsoles.Core.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
+          }
+        }
+      },
+      "BetterConsoleTables/2.0.5-rc1": {
+        "dependencies": {
+          "BetterConsoles.Colors": "1.1.1",
+          "BetterConsoles.Core": "1.2.0",
+          "Clawfoot.Extensions": "0.6.0"
+        },
+        "runtime": {
+          "lib/net6.0/BetterConsole.Tables.dll": {
+            "assemblyVersion": "2.0.5.0",
+            "fileVersion": "2.0.5.0"
+          }
+        }
+      },
+      "Clawfoot.Core/0.6.0": {
+        "runtime": {
+          "lib/netcoreapp2.0/Clawfoot.Core.dll": {
+            "assemblyVersion": "0.6.0.0",
+            "fileVersion": "0.6.0.0"
+          }
+        }
+      },
+      "Clawfoot.Extensions/0.6.0": {
+        "dependencies": {
+          "Clawfoot.Core": "0.6.0"
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/Clawfoot.Extensions.dll": {
+            "assemblyVersion": "0.6.0.0",
+            "fileVersion": "0.6.0.0"
+          }
         }
       }
     }
@@ -18,6 +72,41 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "BetterConsoles.Colors/1.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qcQf4XeAkmfmeT+rUySvbZ2mSDHHSC97g4BZl1p6HP3q8/jQGKEIZO1CVvCOv+MV/twOfdgh1O7IXgePr1zhFw==",
+      "path": "betterconsoles.colors/1.1.1",
+      "hashPath": "betterconsoles.colors.1.1.1.nupkg.sha512"
+    },
+    "BetterConsoles.Core/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JttvGkrAt+YkKVe8sMGxF6R94mCA+Icln07b79sClQRBCa8Uj89ll36EZZUrivFuYObR9ExKdUAidfdkYrQMJQ==",
+      "path": "betterconsoles.core/1.2.0",
+      "hashPath": "betterconsoles.core.1.2.0.nupkg.sha512"
+    },
+    "BetterConsoleTables/2.0.5-rc1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mTuqUDu0xcpV4cowayFpQ4Ijd8SletUuGFXJ8n57fLfC4QNTwa52F1Ps9/dBISjaKDdoxYqcWsRjZQxEg9Bu1Q==",
+      "path": "betterconsoletables/2.0.5-rc1",
+      "hashPath": "betterconsoletables.2.0.5-rc1.nupkg.sha512"
+    },
+    "Clawfoot.Core/0.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3bR92AEsB4Bw4AD/ZxklPEoWDqZ3F49vhOsw9G0PqOx61zMPmgNZBjrfmQ0zZBOnWFTPkZkfGOI1r4u4ReD4YA==",
+      "path": "clawfoot.core/0.6.0",
+      "hashPath": "clawfoot.core.0.6.0.nupkg.sha512"
+    },
+    "Clawfoot.Extensions/0.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-93x9JWB1Iu46LLKhSMtjnCplZsDuFTwYZIZPrdr8nzNVaT01cxAPMEOQXgbHNAK6mC387Leat29qUjIAbnuTqw==",
+      "path": "clawfoot.extensions/0.6.0",
+      "hashPath": "clawfoot.extensions.0.6.0.nupkg.sha512"
     }
   }
 }
