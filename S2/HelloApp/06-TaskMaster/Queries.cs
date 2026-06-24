@@ -32,6 +32,31 @@ namespace TaskMaster
       WriteLine(table.ToString());
       // ReadKey();
     } 
+    
+    public List<Task> AddTask()
+    {
+      try
+      {
+        ResetColor();
+        Clear();
+        WriteLine("**** Añadir Tarea ****");
+        WriteLine("Ingrese la descripcion de la tarea: ");
+        var description = ReadLine() ?? "";
+        //uso la liberia Guid para generar el id la creo en una clase Utils y e instancio el metodo que me devuelve el id
+        Task newTask = new Task(Utils.GenerateId(), description);
+        Tasks.Add(newTask);
+        ForegroundColor = ConsoleColor.Green;
+        WriteLine("Tarea añadida con éxito");
+        ResetColor();
+        return Tasks;
+      }
+      catch (Exception ex)
+      {
+        ForegroundColor = ConsoleColor.DarkRed;
+        WriteLine(ex.Message);
+        return Tasks;
+      }
+    }
 
   }
 }

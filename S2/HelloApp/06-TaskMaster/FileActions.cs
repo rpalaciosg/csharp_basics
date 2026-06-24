@@ -26,8 +26,8 @@ namespace TaskMaster
         sw.Write(content);
         sw.Dispose();
 
-        ForegroundColor = ConsoleColor.Green;
-        WriteLine("¡Cambios guardados con exito!");
+        ForegroundColor = ConsoleColor.DarkBlue;
+        WriteLine("¡Cambios guardados con exito en el archivo!");
         ResetColor();
       }
       catch (IOException ex)

@@ -29,7 +29,7 @@ namespace TaskMaster
             queries.ListTasks();
             break;
           case "2":
-            // AddTask();
+            AddTask();
             break;
           case "3":
             // MarkAsCompleted();
@@ -55,6 +55,22 @@ namespace TaskMaster
             Console.WriteLine("Opción no válida. Intente nuevamente.");
             break;
         }
+      }
+    }
+    /*
+    * MEtodo para agregar tareas
+    */
+    public static void AddTask()
+    {
+      try
+      {
+        var tasks = queries.AddTask();
+        fileActions.WriteFile(tasks);
+      }
+      catch (Exception ex)
+      {
+        ForegroundColor = ConsoleColor.Red;
+        WriteLine($"Ocurrio un error al añadir la tarea: {ex.Message}");
       }
     }
 
