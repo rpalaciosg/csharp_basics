@@ -57,6 +57,38 @@ namespace TaskMaster
         return Tasks;
       }
     }
+    
+    public List<Task> MarkAsCompleted()
+    {
+      try
+      {
+        ResetColor();
+        Clear();
+        WriteLine("**** Marcar tarea como Completada ****");
+        WriteLine("Ingrese el id de la tarea que desea marcar como completado:");
+        var id = ReadLine();
+        Task task = Tasks.Find(t => t.Id == id)!;// esto esta mal es peligroso
+        if (task is null)
+        {
+          ForegroundColor = ConsoleColor.DarkRed;
+          WriteLine($"No se encontro la tarea con el ID: {id}");
+          ResetColor();
+          return Tasks;
+        }
+        task.Completed = true;
+        task.ModifiedAt = DateTime.Now;
+        ForegroundColor = ConsoleColor.Green;
+        WriteLine($"Tarea {id} marcada como completada con exito.");
+        ResetColor();
+        return Tasks;
+      }
+      catch (Exception ex)
+      {
+        ForegroundColor = ConsoleColor.DarkRed;
+        WriteLine(ex.Message);
+        return Tasks;
+      }
+    }
 
   }
 }

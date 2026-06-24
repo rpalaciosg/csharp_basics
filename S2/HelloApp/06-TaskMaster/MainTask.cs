@@ -32,7 +32,7 @@ namespace TaskMaster
             AddTask();
             break;
           case "3":
-            // MarkAsCompleted();
+            MarkAsCompleted();
             break;
           case "4":
             // EditTask();
@@ -71,6 +71,20 @@ namespace TaskMaster
       {
         ForegroundColor = ConsoleColor.Red;
         WriteLine($"Ocurrio un error al añadir la tarea: {ex.Message}");
+      }
+    }
+    
+    public static void MarkAsCompleted()
+    {
+      try
+      {
+        var tasks = queries.MarkAsCompleted();
+        fileActions.WriteFile(tasks);
+      }
+      catch (Exception ex)
+      {
+        ForegroundColor = ConsoleColor.Red;
+        WriteLine($"Ocurrio un error al marcar como Completada la tarea: {ex.Message}");
       }
     }
 
