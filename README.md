@@ -53,3 +53,9 @@ dotnet add package AspNetCore.Scalar
     </PropertyGroup>
   ```
   - Luego descomenta las líneas en AddSwaggerGen que incluyen los comentarios XML.
+  
+## Agregar Healthchecks
+instalo el paquete para poder ver formato json
+```bash
+dotnet add package AspNetCore.HealthChecks.UI.Client
+```

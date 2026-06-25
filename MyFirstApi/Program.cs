@@ -1,4 +1,5 @@
 using Scalar.AspNetCore; 
+using HealthChecks.UI.Client; // para foramto json
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHealthChecks();
 
 var app = builder.Build();
 
@@ -30,6 +32,15 @@ if (app.Environment.IsDevelopment())
 * Redirije toda peticion HTTP a HTTPS
 */
 app.UseHttpsRedirection();
+
+// Mapear el endpoint de health checks
+// app.MapHealthChecks("/health"); // Endpoint básico
+// app.MapHealthChecks("/healthz"); // Nombre alternativo común
+// endoint con response en json
+app.MapHealthChecks("/health", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
+{
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse // Formato JSON detallado
+});
 
 // descripociones del clima
 var summaries = new[]
