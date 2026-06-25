@@ -78,3 +78,10 @@ xml
 <PropertyGroup>
     <NoWarn>$(NoWarn);NU1902</NoWarn>
 </PropertyGroup>
+
+## Migrar de .sln a .slnx
+USamos el comando:
+```bash
+dotnet sln migrate
+```
+Esto nos crea un archivo de solucion mas entendible para humanos ya que esta en formato .xml

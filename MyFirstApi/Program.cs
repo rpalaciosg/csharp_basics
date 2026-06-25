@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+#region Health checks
 // builder.Services.AddHealthChecks(); // basica
 // Health checks con verificaciones personalizadas
 builder.Services.AddHealthChecks()
@@ -30,6 +31,7 @@ builder.Services.AddHealthChecksUI(setup =>
     setup.AddHealthCheckEndpoint("Mi API", "/health"); // Endpoint que monitoreará
 })
 .AddInMemoryStorage(); // Almacenamiento en memoria (para desarrollo)
+#endregion
 
 var app = builder.Build();
 
@@ -62,14 +64,10 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 // Mapear el endpoint de health checks
-// app.MapHealthChecks("/health"); // Endpoint básico
-// app.MapHealthChecks("/healthz"); // Nombre alternativo común
-// endoint con response en json
 app.MapHealthChecks("/health", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
 {
     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse // Formato JSON detallado
 });
-
 // Endpoint específico para verificaciones de sistema
 app.MapHealthChecks("/health/system", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
 {
