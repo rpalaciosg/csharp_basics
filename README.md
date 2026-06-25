@@ -23,3 +23,12 @@ en el archivo del proyecto `.csproj` y agregamos lo siguiente:
 6. Polimorfismo en métodos, clases abstractas e interfaces
 7. Visibilidad y encapsulamiento en C#
 8. Implementación de ejercicios prácticos de gestión de inventario, flotas de buses y empleados
+
+## Seccion 8: proyecto ASP.NET Core MVC
+
+Vamos a crear un proyecto de un API usando el sigueitne comando y plantilla:
+
+```bash
+dotnet new webapi --name MyFirstApi
+```
+
