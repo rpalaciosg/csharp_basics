@@ -1,5 +1,6 @@
 using Scalar.AspNetCore; 
 using HealthChecks.UI.Client; // para foramto json
+using Microsoft.Extensions.Diagnostics.HealthChecks; // para verificaciones personalizadas del sistema
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +9,20 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddHealthChecks();
+// builder.Services.AddHealthChecks(); // basica
+// Health checks con verificaciones personalizadas
+builder.Services.AddHealthChecks()
+    .AddCheck("Memory", () => 
+        HealthCheckResult.Healthy("Memoria suficiente"), 
+        tags: new[] { "system" })
+    .AddCheck("DiskSpace", () =>
+    {
+        var drive = new DriveInfo(Path.GetPathRoot(Environment.SystemDirectory) ?? "C:");
+        var freeSpaceGB = drive.AvailableFreeSpace / 1024.0 / 1024.0 / 1024.0;
+        if (freeSpaceGB < 1)
+            return HealthCheckResult.Unhealthy($"Espacio en disco bajo: {freeSpaceGB:F2} GB");
+        return HealthCheckResult.Healthy($"Espacio en disco: {freeSpaceGB:F2} GB");
+    }, tags: new[] { "system" });
 
 var app = builder.Build();
 
@@ -40,6 +54,13 @@ app.UseHttpsRedirection();
 app.MapHealthChecks("/health", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
 {
     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse // Formato JSON detallado
+});
+
+// Endpoint específico para verificaciones de sistema
+app.MapHealthChecks("/health/system", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
+{
+    Predicate = (check) => check.Tags.Contains("system"),
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
 });
 
 // descripociones del clima
