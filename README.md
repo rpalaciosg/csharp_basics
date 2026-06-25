@@ -59,3 +59,22 @@ instalo el paquete para poder ver formato json
 ```bash
 dotnet add package AspNetCore.HealthChecks.UI.Client
 ```
+
+## Dashboard visual de Health checks
+Con una interfaz visual para monitorear:
+
+```bash
+dotnet add package AspNetCore.HealthChecks.UI
+# si da warnings de seguridad en kubernetes client ejecutar mejor
+   dotnet add package AspNetCore.HealthChecks.UI --version 8.0.1
+# si el problema continua mejor actualizar directamente kubernetes-client
+  dotnet add package KubernetesClient --version 15.0.2
+dotnet add package AspNetCore.HealthChecks.UI.Client
+dotnet add package AspNetCore.HealthChecks.UI.InMemory.Storage
+```
+
+Si la aplicación no usa Kubernetes, puedes ignorar esta advertencia de forma segura. Agrega esto a tu archivo .csproj:
+xml
+<PropertyGroup>
+    <NoWarn>$(NoWarn);NU1902</NoWarn>
+</PropertyGroup>

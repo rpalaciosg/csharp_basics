@@ -24,6 +24,13 @@ builder.Services.AddHealthChecks()
         return HealthCheckResult.Healthy($"Espacio en disco: {freeSpaceGB:F2} GB");
     }, tags: new[] { "system" });
 
+// Agregar UI para health checks
+builder.Services.AddHealthChecksUI(setup =>
+{
+    setup.AddHealthCheckEndpoint("Mi API", "/health"); // Endpoint que monitoreará
+})
+.AddInMemoryStorage(); // Almacenamiento en memoria (para desarrollo)
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -39,6 +46,13 @@ if (app.Environment.IsDevelopment())
     });
     app.UseSwagger();
     app.UseSwaggerUI(); // Interfaz clásica en /swagger
+    app.UseStaticFiles(); // Agregar antes de MapHealthChecksUI
+    // Dashboard de health checks
+    app.MapHealthChecksUI(options =>
+    {
+        options.UIPath = "/health-ui"; // Ruta del dashboard
+        options.ApiPath = "/health-ui-api"; // API interna del dashboard
+    });
 }
 
 /*
