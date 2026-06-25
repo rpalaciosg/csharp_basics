@@ -200,6 +200,41 @@ namespace TaskMaster
       }
     }
 
+    public void TasksByDescription()
+    {
+
+      try
+      {
+        Clear();
+        ResetColor();
+        WriteLine("**** Tareas por descripcion ****");
+        WriteLine("Ingrese la descripcion de las tareas a buscar:");
+        string description = ReadLine()!;
+        // aqui el importante es el metodo FindAll para poder buscar por la descripcion
+        List<Task> matchingTasks = Tasks.FindAll(t => t.Description
+              ?.Contains(description, StringComparison.OrdinalIgnoreCase) ?? false)!;
+        if( matchingTasks.Count == 0)
+        {
+          ForegroundColor = ConsoleColor.Red;
+          WriteLine("No se encontraron tareas con la descripcion proporcionada.");
+          ResetColor();
+          return;
+        }
+        Table table = new Table("Id", "Descripcion", "Estado");
+        table.Config = TableConfig.Unicode();
+        foreach (var task in matchingTasks)
+        {
+          table.AddRow(task.Id, task.Description, task.Completed ? "✔"  : "");
+        }
+        Write(table.ToString());
+      }
+      catch (Exception ex)
+      {
+        ForegroundColor = ConsoleColor.DarkRed;
+        WriteLine($"Ocurrio un error al filtrar las tareas por *Descripcion*: {ex.Message}");
+      }
+    }
+
 
   }
 }

@@ -46,5 +46,13 @@
     "CreatedAt": "2026-06-24T22:21:00.3225031-05:00",
     "ModifiedAt": "2026-06-24T22:21:00.3225129-05:00",
     "Deleted": false
+  },
+  {
+    "Id": "d58738a",
+    "Description": "Limpiar carro",
+    "Completed": false,
+    "CreatedAt": "2026-06-25T01:27:23.0340559-05:00",
+    "ModifiedAt": "2026-06-25T01:27:23.0340656-05:00",
+    "Deleted": false
   }
 ]
