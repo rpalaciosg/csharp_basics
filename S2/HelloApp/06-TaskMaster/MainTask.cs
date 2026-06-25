@@ -41,7 +41,7 @@ namespace TaskMaster
             RemoveTask();
             break;
           case "6":
-            //TasksByState();
+            queries.TasksByState();
             break;
           case "7":
             //TasksByDescription();
@@ -73,7 +73,7 @@ namespace TaskMaster
         WriteLine($"Ocurrio un error al añadir la tarea: {ex.Message}");
       }
     }
-    
+
     public static void MarkAsCompleted()
     {
       try
@@ -87,12 +87,12 @@ namespace TaskMaster
         WriteLine($"Ocurrio un error al marcar como Completada la tarea: {ex.Message}");
       }
     }
-    
+
     public static void EditTask()
     {
       try
       {
-        var tasks = queries.EditTask(); 
+        var tasks = queries.EditTask();
         fileActions.WriteFile(tasks);
       }
       catch (Exception ex)
@@ -101,12 +101,12 @@ namespace TaskMaster
         WriteLine($"Ocurrio un error al -Editar- la tarea: {ex.Message}");
       }
     }
-    
+
     public static void RemoveTask()
     {
       try
       {
-        var tasks = queries.RemoveTask(); 
+        var tasks = queries.RemoveTask();
         fileActions.WriteFile(tasks);
       }
       catch (Exception ex)

@@ -5,7 +5,7 @@ namespace TaskMaster
   public class Queries(List<Task> _tasks)
   {
     private List<Task> Tasks = _tasks;
-    
+
     public void ListTasks()
     {
       // ForegroundColor = ConsoleColor.DarkBlue;
@@ -16,7 +16,7 @@ namespace TaskMaster
       //   WriteLine(new string('-',58));
       //   WriteLine("\n{0,-8}{1,-35}{2,-15}",task.Id, task.Description, task.Completed);
       // }
-      /* 
+      /*
       * vamos a usar la libreria BetterConsoleTables para mostrar de forma mas estetica nuestros
       * datos en consola
       * dotnet add package BetterConsoleTables --version 2.0.5-rc1
@@ -31,8 +31,8 @@ namespace TaskMaster
       }
       WriteLine(table.ToString());
       // ReadKey();
-    } 
-    
+    }
+
     public List<Task> AddTask()
     {
       try
@@ -57,7 +57,7 @@ namespace TaskMaster
         return Tasks;
       }
     }
-    
+
     public List<Task> MarkAsCompleted()
     {
       try
@@ -89,7 +89,7 @@ namespace TaskMaster
         return Tasks;
       }
     }
-    
+
     public List<Task> EditTask()
     {
       try
@@ -123,7 +123,7 @@ namespace TaskMaster
         return Tasks;
       }
     }
-    
+
     public List<Task> RemoveTask()
     {
       try
@@ -141,8 +141,8 @@ namespace TaskMaster
           ResetColor();
           return Tasks;
         }
-        Tasks.Remove(task); 
-           
+        Tasks.Remove(task);
+
         ForegroundColor = ConsoleColor.Green;
         WriteLine($"Tarea {id} modificada con exito.");
         ResetColor();
@@ -155,6 +155,51 @@ namespace TaskMaster
         return Tasks;
       }
     }
+
+    public void TasksByState()
+    {
+      ResetColor();
+      Clear();
+      try
+      {
+        WriteLine("**** Tareas por estado ****");
+        WriteLine("1. Completadas");
+        WriteLine("2. Pendientes");
+        Write("Ingrese la opcion de las tareas a mostrar:");
+        string taskState = ReadLine()!;
+        if( taskState != "1" && taskState != "2")
+        {
+          ForegroundColor = ConsoleColor.DarkRed;
+          WriteLine("Opcion invalidad");
+          ResetColor();
+          return;
+        }
+        bool completed = taskState == "1";
+        List<Task> filteredTasks = Tasks.Where(t => t.Completed == completed).ToList();
+        if(filteredTasks.Count == 0)
+        {
+          ForegroundColor = ConsoleColor.DarkRed;
+          WriteLine("No se encontraron tareas con el estado solicitado");
+          ResetColor();
+          return;
+        }
+
+        ForegroundColor = completed ? ConsoleColor.Green : ConsoleColor.Red;
+        Table table = new Table("Id", "Descripcion", "Estado");
+        table.Config = TableConfig.Unicode();
+        foreach (var task in filteredTasks)
+        {
+          table.AddRow(task.Id, task.Description, task.Completed ? "✔"  : "");
+        }
+        Write(table.ToString());
+      }
+      catch (Exception ex)
+      {
+        ForegroundColor = ConsoleColor.DarkRed;
+        WriteLine($"Ocurrio un error al filtrar las tareas: {ex.Message}");
+      }
+    }
+
 
   }
 }
