@@ -1,0 +1,16 @@
+@hostname = localhost
+@port = 5196
+@host = http://{{hostname}}:{{port}}
+
+### Obtener el pronostico del cliema (WeatherForecast)
+GET {{host}}/api/WeatherForecast HTTP/1.1
+Accept: application/json
+
+### Crear un nuevo registro (Ejemplo POST)
+# POST {{host}}/api/usuarios
+# Content-Type: application/json
+
+# {
+#     "nombre": "Richard",
+#     "rol": "Developer"
+# }

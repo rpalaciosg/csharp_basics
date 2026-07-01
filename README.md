@@ -85,3 +85,20 @@ USamos el comando:
 dotnet sln migrate
 ```
 Esto nos crea un archivo de solucion mas entendible para humanos ya que esta en formato .xml
+
+## Seccion 9: Api de ejmplo para practicar
+
+1. Crear el proyecto:
+```bash
+  dotnet new webapi --name TaskMasterAPI
+```
+2. En caso de que salga un warning por vulnerabilidad de la version 2.0.0 del paquete `Microsoft.OpenApi`:
+```bash
+  dotnet add package Microsoft.OpenApi
+```
+- Esto agregara y buscar la version mas estable y sin la vulnerabilidad que sea compatible con el proyecto.
+
+3. Para limpiar todo el proyecto y verificar que ya no exista warnings ejecutamos:
+```bash
+  dotnet restore
+```
