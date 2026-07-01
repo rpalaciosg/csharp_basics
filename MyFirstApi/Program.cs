@@ -1,4 +1,4 @@
-using Scalar.AspNetCore; 
+using Scalar.AspNetCore;
 using HealthChecks.UI.Client; // para foramto json
 using Microsoft.Extensions.Diagnostics.HealthChecks; // para verificaciones personalizadas del sistema
 
@@ -13,12 +13,14 @@ builder.Services.AddSwaggerGen();
 // builder.Services.AddHealthChecks(); // basica
 // Health checks con verificaciones personalizadas
 builder.Services.AddHealthChecks()
-    .AddCheck("Memory", () => 
-        HealthCheckResult.Healthy("Memoria suficiente"), 
+    .AddCheck("Memory", () =>
+        HealthCheckResult.Healthy("Memoria suficiente"),
         tags: new[] { "system" })
     .AddCheck("DiskSpace", () =>
     {
-        var drive = new DriveInfo(Path.GetPathRoot(Environment.SystemDirectory) ?? "C:");
+        var drive = new DriveInfo(OperatingSystem.IsWindows()
+            ? Path.GetPathRoot(Environment.SystemDirectory) ?? "C:"
+            : "/");
         var freeSpaceGB = drive.AvailableFreeSpace / 1024.0 / 1024.0 / 1024.0;
         if (freeSpaceGB < 1)
             return HealthCheckResult.Unhealthy($"Espacio en disco bajo: {freeSpaceGB:F2} GB");
@@ -62,6 +64,19 @@ if (app.Environment.IsDevelopment())
 * Redirije toda peticion HTTP a HTTPS
 */
 app.UseHttpsRedirection();
+app.UseStaticFiles(); //middleware para archivos staticos
+//redireccionamiento
+app.Use(async(context, next) => {
+    if(context.Request.Path == "/")
+    {
+      context.Response.Redirect("/index.html");
+    }
+    else
+    {
+    await next();
+    }
+    });
+
 
 // Mapear el endpoint de health checks
 app.MapHealthChecks("/health", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
