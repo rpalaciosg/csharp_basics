@@ -34,6 +34,8 @@ builder.Services.AddHealthChecksUI(setup =>
 })
 .AddInMemoryStorage(); // Almacenamiento en memoria (para desarrollo)
 #endregion
+// Agrego los controladores
+builder.Services.AddControllers(); // permite usar todos los controllers de la carpeta Controllers, en este caso WeatherForecastController
 
 var app = builder.Build();
 
@@ -91,27 +93,8 @@ app.MapHealthChecks("/health/system", new Microsoft.AspNetCore.Diagnostics.Healt
 });
 
 
-//genera un endpoint del verbo GET llamado /weatherforecast
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithDescription("Retorna un array de 5 dias de pronostico climatico.")
-.WithSummary("Obtiene el pronostico del clima");
-// .WithOpenApi(); //solo llamada simple sin lambda
+// Mapear los controladores
+app.MapControllers();
 
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
