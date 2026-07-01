@@ -1023,25 +1023,35 @@
     ]
   },
   "packageFolders": {
-    "/home/richard/.nuget/packages/": {}
+    "C:\\Users\\rpalacios\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/richard/Learning/dotNet/Csharp_curso/S2/HelloApp/HelloApp.csproj",
+      "projectUniqueName": "E:\\Learning\\csharp_basics\\S2\\HelloApp\\HelloApp.csproj",
       "projectName": "HelloApp",
-      "projectPath": "/home/richard/Learning/dotNet/Csharp_curso/S2/HelloApp/HelloApp.csproj",
-      "packagesPath": "/home/richard/.nuget/packages/",
-      "outputPath": "/home/richard/Learning/dotNet/Csharp_curso/S2/HelloApp/obj/",
+      "projectPath": "E:\\Learning\\csharp_basics\\S2\\HelloApp\\HelloApp.csproj",
+      "packagesPath": "C:\\Users\\rpalacios\\.nuget\\packages\\",
+      "outputPath": "E:\\Learning\\csharp_basics\\S2\\HelloApp\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/home/richard/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\rpalacios\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "/usr/lib/dotnet/library-packs": {},
+        "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1082,18 +1092,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.NETCore.App.Host.linux-x64",
-            "version": "[9.0.17, 9.0.17]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/10.0.109/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
