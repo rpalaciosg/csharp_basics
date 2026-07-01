@@ -90,11 +90,6 @@ app.MapHealthChecks("/health/system", new Microsoft.AspNetCore.Diagnostics.Healt
     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
 });
 
-// descripociones del clima
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
 
 //genera un endpoint del verbo GET llamado /weatherforecast
 app.MapGet("/weatherforecast", () =>
