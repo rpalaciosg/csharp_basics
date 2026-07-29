@@ -3,4 +3,10 @@
 GET {{TaskMasterAPI_HostAddress}}/weatherforecast/
 Accept: application/json
 
-###
+### obtener tareas
+GET {{TaskMasterAPI_HostAddress}}/api/task/
+Accept: application/json
+
+### obtener tarea por id
+GET {{TaskMasterAPI_HostAddress}}/api/task/4
+Accept: application/json
