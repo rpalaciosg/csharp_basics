@@ -1,6 +1,6 @@
 @TaskMasterAPI_HostAddress = http://localhost:5179
 
-GET {{TaskMasterAPI_HostAddress}}/weatherforecast/
+
 Accept: application/json
 
 ### obtener tareas
@@ -10,3 +10,13 @@ Accept: application/json
 ### obtener tarea por id
 GET {{TaskMasterAPI_HostAddress}}/api/task/4
 Accept: application/json
+
+### crear tarea
+POST {{TaskMasterAPI_HostAddress}}/api/task/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "title": "Crear una tarea",
+  "description": "Crea una tarea usando el metodo POST"
+}

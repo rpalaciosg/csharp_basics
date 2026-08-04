@@ -17,7 +17,7 @@ public class TaskController:ControllerBase
   {
     return Ok(TaskDataStore.Current.Tasks);//deveulve un 200 OK con la lista de tareas en formato JSON
   }
-  
+
   [HttpGet("{id}")]
   //api/task/1 -> este atributo id va desde la url
   public ActionResult<Models.Task> GetTask(int id)
@@ -25,10 +25,26 @@ public class TaskController:ControllerBase
     var task = TaskDataStore.Current.Tasks.FirstOrDefault(t => t.Id == id);
     if (task == null)
     {
-      return NotFound("No se encontró la tarea.");//deveulve un 404 Not Found si no encuentra la tarea 
+      return NotFound("No se encontró la tarea.");//deveulve un 404 Not Found si no encuentra la tarea
     }
-   
-    return Ok(task);//deveulve un 200 OK con la tarea en formato JSON 
+
+    return Ok(task);//deveulve un 200 OK con la tarea en formato JSON
+  }
+
+  [HttpPost]
+  public ActionResult<Models.Task> CreateTask(Models.TaskInsert taskInsert)
+  {
+    var newTask = new Models.Task
+    {
+      Id = TaskDataStore.Current.Tasks.Max(t => t.Id) + 1,
+      CreatedAt = DateTime.Now,
+      UpdatedAt = DateTime.Now,
+      IsCompleted = false,
+      Title = taskInsert.Title,
+      Description = taskInsert.Description
+    };
+    TaskDataStore.Current.Tasks.Add(newTask);
+    return Ok(newTask);
   }
 
 }
