@@ -30,3 +30,7 @@ Content-Type: application/json
   "title": "Aprender REST",
   "description": " Aprender Rest cliente esto lo actualice con PUT"
 }
+
+### eliminar tarea
+DELETE {{TaskMasterAPI_HostAddress}}/api/task/4
+Accept: application/json
