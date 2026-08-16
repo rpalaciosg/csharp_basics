@@ -20,3 +20,13 @@ Content-Type: application/json
   "title": "Crear una tarea",
   "description": "Crea una tarea usando el metodo POST"
 }
+
+### actualizar tarea
+PUT {{TaskMasterAPI_HostAddress}}/api/task/4
+Accept: application/json
+Content-Type: application/json
+
+{
+  "title": "Aprender REST",
+  "description": " Aprender Rest cliente esto lo actualice con PUT"
+}

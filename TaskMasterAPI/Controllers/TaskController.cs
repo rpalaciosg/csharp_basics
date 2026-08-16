@@ -1,5 +1,6 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
+using TaskMasterAPI.Models;
 using TaskMasterAPI.Services;
 
 namespace TaskMasterAPI.Controllers;
@@ -47,4 +48,18 @@ public class TaskController:ControllerBase
     return Ok(newTask);
   }
 
+  [HttpPut("{id}")]
+  //api/task/1 -> este atributo id va desde la url
+  public ActionResult<Models.Task> UpdtateTask(int id, Models.TaskInsert taskInsert)
+  {
+    var task = TaskDataStore.Current.Tasks.FirstOrDefault(t => t.Id == id);
+    if (task == null)
+    {
+      return NotFound("No se encontró la tarea a actualizar");
+    }
+    task.Title = taskInsert.Title;
+    task.Description = taskInsert.Description;
+    task.UpdatedAt = DateTime.Now;
+    return Ok(task);
+  }
 }
